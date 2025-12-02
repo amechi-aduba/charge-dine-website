@@ -1,0 +1,764 @@
+/* ========== Base Styles ========== */
+
+:root {
+    --bg: #050816;
+    --bg-alt: #0b1020;
+    --card-bg: #111827;
+    --accent: #38bdf8;
+    --accent-soft: rgba(56, 189, 248, 0.12);
+    --text-main: #f9fafb;
+    --text-muted: #9ca3af;
+    --border-subtle: rgba(148, 163, 184, 0.35);
+    --radius-lg: 1.25rem;
+    --radius-md: 0.9rem;
+    --shadow-soft: 0 18px 45px rgba(15, 23, 42, 0.85);
+    --shadow-subtle: 0 10px 30px rgba(15, 23, 42, 0.6);
+}
+
+*,
+*::before,
+*::after {
+    box-sizing: border-box;
+}
+
+html, body {
+    margin: 0;
+    padding: 0;
+    font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+    color: var(--text-main);
+    background-color: var(--bg);
+}
+
+img {
+    max-width: 100%;
+    display: block;
+}
+
+a {
+    text-decoration: none;
+    color: inherit;
+}
+
+.container {
+    width: min(1120px, 100% - 2.5rem);
+    margin: 0 auto;
+}
+
+/* ========== Header ========== */
+
+.site-header {
+    position: sticky;
+    top: 0;
+    z-index: 20;
+    backdrop-filter: blur(16px);
+    background: linear-gradient(to bottom, rgba(5, 8, 22, 0.96), rgba(5, 8, 22, 0.8), transparent);
+    border-bottom: 1px solid rgba(148, 163, 184, 0.2);
+}
+
+.header-inner {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0.85rem 0;
+}
+
+.logo {
+    display: flex;
+    align-items: center;
+    gap: 0.55rem;
+    font-weight: 600;
+    letter-spacing: 0.02em;
+}
+
+.logo-icon {
+    font-size: 1.5rem;
+}
+
+.logo-text {
+    font-size: 1rem;
+    white-space: nowrap;
+}
+
+.nav {
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+}
+
+.nav-link {
+    font-size: 0.9rem;
+    padding: 0.4rem 0.8rem;
+    border-radius: 999px;
+    color: var(--text-muted);
+    transition: all 0.18s ease;
+}
+
+.nav-link:hover {
+    color: var(--text-main);
+    background-color: rgba(15, 23, 42, 0.9);
+}
+
+.nav-link.active {
+    color: var(--accent);
+    background-color: rgba(15, 23, 42, 0.9);
+}
+
+.nav-cta {
+    border: 1px solid var(--accent);
+}
+
+/* ========== About Page ========== */
+
+.about-hero {
+    padding: 3rem 0 2.5rem;
+}
+
+.about-header {
+    text-align: center;
+    margin-bottom: 1.8rem;
+}
+
+.about-header h1 {
+    margin-bottom: 0.6rem;
+}
+
+.about-grid {
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 1.2rem;
+}
+
+.about-card {
+    background-color: var(--card-bg);
+    border-radius: var(--radius-md);
+    padding: 1.2rem 1.1rem;
+    border: 1px solid var(--border-subtle);
+    box-shadow: var(--shadow-subtle);
+    font-size: 0.9rem;
+}
+
+.about-card h2,
+.about-card h3 {
+    margin-top: 0;
+    margin-bottom: 0.6rem;
+    font-size: 1rem;
+}
+
+.about-card p {
+    margin: 0;
+    color: var(--text-muted);
+}
+
+/* Team section (About) */
+
+.team {
+    padding: 2.5rem 0 3rem;
+    background-color: var(--bg-alt);
+}
+
+.team-grid {
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 1.2rem;
+}
+
+.image-placeholder {
+    margin-bottom: 0.7rem;
+    border-radius: 0.75rem;
+    border: 1px dashed rgba(148, 163, 184, 0.7);
+    padding: 0.7rem;
+    font-size: 0.78rem;
+    text-align: center;
+    color: var(--text-muted);
+    background-color: rgba(15, 23, 42, 0.75);
+}
+
+.image-placeholder.wide {
+    width: 100%;
+}
+
+/* ========== Restaurants Page ========== */
+
+.restaurants-hero {
+    padding: 3rem 0 3rem;
+}
+
+.filter-bar {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.5rem;
+    margin-bottom: 1.5rem;
+}
+
+.pill {
+    font-size: 0.8rem;
+    padding: 0.35rem 0.9rem;
+    border-radius: 999px;
+    background-color: rgba(15, 23, 42, 0.9);
+    border: 1px solid rgba(148, 163, 184, 0.4);
+    color: var(--text-muted);
+}
+
+.restaurants-grid {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 1.3rem;
+}
+
+.restaurant-card {
+    background-color: var(--card-bg);
+    border-radius: var(--radius-lg);
+    border: 1px solid var(--border-subtle);
+    overflow: hidden;
+    box-shadow: var(--shadow-subtle);
+    display: flex;
+    flex-direction: column;
+}
+
+.restaurant-image-placeholder {
+    height: 150px;
+    border-bottom: 1px solid rgba(148, 163, 184, 0.4);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 0.8rem;
+    color: var(--text-muted);
+    background: radial-gradient(circle at center, rgba(56, 189, 248, 0.16), rgba(15, 23, 42, 0.96));
+    overflow: hidden; /* ✅ add this */
+}
+
+.restaurant-image-placeholder img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover; /* fills area cleanly */
+    display: block;
+}
+
+.restaurant-body {
+    padding: 1rem 1rem 1.1rem;
+    font-size: 0.9rem;
+}
+
+.restaurant-body h2 {
+    margin: 0 0 0.2rem;
+    font-size: 1.05rem;
+}
+
+.restaurant-location {
+    margin: 0 0 0.6rem;
+    font-size: 0.82rem;
+    color: var(--text-muted);
+}
+
+.restaurant-text {
+    margin: 0 0 0.7rem;
+    color: var(--text-muted);
+}
+
+.restaurant-meta {
+    margin: 0;
+    padding-left: 1.1rem;
+    font-size: 0.82rem;
+    color: var(--text-muted);
+}
+
+/* ========== Rewards Page ========== */
+
+.rewards-hero {
+    padding: 3rem 0 3rem;
+}
+
+.tiers-grid {
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 1.2rem;
+    margin-bottom: 2rem;
+}
+
+.tier-card {
+    background-color: var(--card-bg);
+    border-radius: var(--radius-md);
+    border: 1px solid var(--border-subtle);
+    padding: 1.1rem 1rem 1.3rem;
+    box-shadow: var(--shadow-subtle);
+    font-size: 0.9rem;
+}
+
+.tier-card h2 {
+    margin: 0 0 0.2rem;
+    font-size: 1rem;
+}
+
+.tier-points {
+    margin: 0 0 0.5rem;
+    font-size: 0.82rem;
+    color: var(--text-muted);
+}
+
+.tier-card ul {
+    margin: 0 0 0.7rem;
+    padding-left: 1.1rem;
+    font-size: 0.85rem;
+    color: var(--text-muted);
+}
+
+.tier-icon {
+    font-size: 2rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.rewards-steps {
+    margin-top: 1.2rem;
+}
+
+.rewards-steps h2 {
+    margin: 0 0 0.6rem;
+    font-size: 1.05rem;
+}
+
+.rewards-steps ol {
+    margin: 0 0 1rem;
+    padding-left: 1.25rem;
+    font-size: 0.88rem;
+    color: var(--text-muted);
+}
+
+.coming-soon {
+    background-color: rgba(56, 189, 248, 0.12);
+    border: 1px solid rgba(56, 189, 248, 0.4);
+    padding: 0.75rem 1rem;
+    border-radius: 0.75rem;
+    font-size: 0.9rem;
+    margin: 1rem 0 1.2rem;
+    color: var(--accent);
+}
+
+
+/* ========== Contact Page ========== */
+
+.contact-hero {
+    padding: 3rem 0 3rem;
+    background-color: var(--bg-alt);
+}
+
+.contact-grid {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 1.3rem;
+}
+
+.contact-card {
+    background-color: var(--card-bg);
+    border-radius: var(--radius-md);
+    border: 1px solid var(--border-subtle);
+    padding: 1.2rem 1.1rem 1.3rem;
+    box-shadow: var(--shadow-subtle);
+    font-size: 0.9rem;
+}
+
+.contact-card h2 {
+    margin: 0 0 0.7rem;
+    font-size: 1.02rem;
+}
+
+.contact-list {
+    list-style: none;
+    padding: 0;
+    margin: 0 0 1rem;
+    font-size: 0.86rem;
+    color: var(--text-muted);
+}
+
+.contact-list li {
+    margin-bottom: 0.35rem;
+}
+
+/* Contact form */
+
+.contact-form .form-group {
+    margin-bottom: 0.8rem;
+}
+
+.contact-form label {
+    display: block;
+    font-size: 0.8rem;
+    margin-bottom: 0.25rem;
+}
+
+.contact-form input,
+.contact-form textarea {
+    width: 100%;
+    border-radius: 0.6rem;
+    border: 1px solid rgba(148, 163, 184, 0.5);
+    padding: 0.45rem 0.6rem;
+    background-color: rgba(15, 23, 42, 0.95);
+    color: var(--text-main);
+    font-size: 0.86rem;
+}
+
+.contact-form input::placeholder,
+.contact-form textarea::placeholder {
+    color: rgba(148, 163, 184, 0.6);
+}
+
+/* ========== Responsive tweaks for new sections ========== */
+
+@media (max-width: 900px) {
+    .about-grid,
+    .team-grid,
+    .restaurants-grid,
+    .tiers-grid,
+    .contact-grid {
+        grid-template-columns: minmax(0, 1fr);
+    }
+}
+
+
+/* ========== Hero ========== */
+
+.hero {
+    padding: 3.5rem 0 3rem;
+    background: radial-gradient(circle at top left, rgba(56, 189, 248, 0.2), transparent 55%),
+                radial-gradient(circle at bottom right, rgba(59, 130, 246, 0.23), transparent 60%);
+}
+
+.hero-inner {
+    display: grid;
+    grid-template-columns: minmax(0, 3fr) minmax(0, 2.4fr);
+    gap: 2.8rem;
+    align-items: center;
+}
+
+.hero-text h1 {
+    font-size: clamp(2rem, 3vw, 2.6rem);
+    line-height: 1.1;
+    margin: 0 0 1rem;
+}
+
+.accent {
+    color: var(--accent);
+}
+
+.hero-subtitle {
+    margin: 0 0 1.25rem;
+    color: var(--text-muted);
+    max-width: 32rem;
+    font-size: 0.98rem;
+}
+
+.hero-actions {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.75rem;
+    margin-bottom: 0.9rem;
+}
+
+.hero-note {
+    font-size: 0.82rem;
+    color: var(--text-muted);
+}
+
+.btn {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    padding: 0.6rem 1.3rem;
+    border-radius: 999px;
+    font-size: 0.9rem;
+    border: 1px solid transparent;
+    cursor: pointer;
+    transition: all 0.18s ease;
+    white-space: nowrap;
+}
+
+.primary-btn {
+    background: linear-gradient(135deg, #38bdf8, #4f46e5);
+    color: white;
+    box-shadow: var(--shadow-soft);
+}
+
+.primary-btn:hover {
+    filter: brightness(1.05);
+    transform: translateY(-1px);
+}
+
+.secondary-btn {
+    background-color: rgba(15, 23, 42, 0.9);
+    border-color: rgba(148, 163, 184, 0.4);
+    color: var(--text-main);
+}
+
+.secondary-btn:hover {
+    border-color: var(--accent);
+    color: var(--accent);
+}
+
+/* Hero card */
+
+.hero-card {
+    background-color: var(--card-bg);
+    border-radius: var(--radius-md);
+    border: 1px solid var(--border-subtle);
+    padding: 1.2rem 1.1rem 1.3rem;
+    box-shadow: var(--shadow-subtle);
+    font-size: 0.9rem;
+}
+
+.hero-card h2 {
+    margin: 0 0 0.7rem;
+    font-size: 1.02rem;
+}
+
+.steps-list {
+    list-style: none;
+    padding: 0;
+    margin: 0 0 1.4rem;
+    display: flex;
+    flex-direction: column;
+    gap: 0.7rem;
+    font-size: 0.9rem;
+    color: var(--text-muted);
+}
+
+.steps-list li {
+    display: flex;
+    align-items: flex-start;
+    gap: 0.55rem;
+}
+
+.steps-list span {
+    width: 1.2rem;
+    height: 1.2rem;
+    border-radius: 999px;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 0.72rem;
+    background-color: var(--accent-soft);
+    color: var(--accent);
+    flex-shrink: 0;
+}
+
+.hero-stat {
+    padding: 0.9rem 0.9rem 0.8rem;
+    border-radius: var(--radius-md);
+    border: 1px dashed rgba(148, 163, 184, 0.5);
+    background: radial-gradient(circle at top left, rgba(15, 23, 42, 0.2), rgba(15, 23, 42, 0.96));
+}
+
+.hero-stat-number {
+    font-size: 1.4rem;
+    font-weight: 600;
+    display: block;
+    margin-bottom: 0.15rem;
+}
+
+.hero-stat-label {
+    font-size: 0.78rem;
+    color: var(--text-muted);
+}
+
+/* ========== Sections ========== */
+
+.section-title {
+    text-align: center;
+    font-size: 1.4rem;
+    margin: 0 0 0.4rem;
+}
+
+.section-subtitle {
+    text-align: center;
+    max-width: 32rem;
+    margin: 0 auto 1.8rem;
+    font-size: 0.95rem;
+    color: var(--text-muted);
+}
+
+/* Features */
+
+.features {
+    padding: 2.5rem 0;
+    background-color: var(--bg-alt);
+}
+
+.features-grid {
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 1.3rem;
+}
+
+.feature-card {
+    background-color: var(--card-bg);
+    border-radius: var(--radius-md);
+    padding: 1.1rem 1rem 1.2rem;
+    border: 1px solid var(--border-subtle);
+    box-shadow: var(--shadow-subtle);
+    font-size: 0.9rem;
+}
+
+.feature-card h3 {
+    margin: 0 0 0.6rem;
+    font-size: 1rem;
+}
+
+.feature-card p {
+    margin: 0;
+    color: var(--text-muted);
+}
+
+/* Stats */
+
+.stats {
+    padding: 2.1rem 0;
+}
+
+.stats-inner {
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 1rem;
+}
+
+.stat-item {
+    background-color: var(--card-bg);
+    padding: 0.9rem 0.9rem 1rem;
+    border-radius: var(--radius-md);
+    border: 1px solid var(--border-subtle);
+    text-align: center;
+}
+
+.stat-number {
+    display: block;
+    font-size: 1.3rem;
+    font-weight: 600;
+    margin-bottom: 0.2rem;
+}
+
+.stat-label {
+    font-size: 0.8rem;
+    color: var(--text-muted);
+}
+
+/* CTA */
+
+.cta {
+    padding: 2.5rem 0 3rem;
+}
+
+.cta-inner {
+    background: linear-gradient(135deg, rgba(56, 189, 248, 0.12), rgba(79, 70, 229, 0.25));
+    border-radius: var(--radius-lg);
+    padding: 1.8rem 1.5rem;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 1rem;
+    border: 1px solid rgba(148, 163, 184, 0.3);
+    box-shadow: var(--shadow-soft);
+}
+
+.cta-text h2 {
+    margin: 0 0 0.4rem;
+    font-size: 1.3rem;
+}
+
+.cta-text p {
+    margin: 0;
+    font-size: 0.9rem;
+}
+
+.cta-actions {
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+}
+
+.ghost-btn {
+    background: transparent;
+    border-color: rgba(15, 23, 42, 0.85);
+    color: var(--text-main);
+}
+
+.ghost-btn:hover {
+    border-color: var(--accent);
+    color: var(--accent);
+}
+
+/* Footer */
+
+.site-footer {
+    border-top: 1px solid rgba(148, 163, 184, 0.25);
+    padding: 1.3rem 0 1.8rem;
+    background-color: #020617;
+}
+
+.footer-inner {
+    text-align: center;
+    font-size: 0.78rem;
+    color: var(--text-muted);
+}
+
+.footer-note {
+    margin-top: 0.25rem;
+}
+
+/* ========== Responsive ========== */
+
+@media (max-width: 900px) {
+    .hero-inner {
+        grid-template-columns: minmax(0, 1fr);
+    }
+
+    /* hero-card no longer reorders, so title stays on top */
+
+    .header-inner {
+        flex-wrap: wrap;
+        gap: 0.75rem;
+    }
+
+    .nav {
+        flex-wrap: wrap;
+        justify-content: flex-end;
+    }
+
+    .features-grid,
+    .stats-inner {
+        grid-template-columns: minmax(0, 1fr);
+    }
+
+    .cta-inner {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+
+    .cta-actions {
+        align-self: stretch;
+        flex-direction: row;
+        justify-content: flex-start;
+        flex-wrap: wrap;
+    }
+}
+
+@media (max-width: 600px) {
+    .container {
+        width: min(100% - 1.5rem, 100%);
+    }
+
+    .logo-text {
+        font-size: 0.92rem;
+    }
+
+    .nav {
+        gap: 0.4rem;
+    }
+
+    .nav-link {
+        padding-inline: 0.6rem;
+        font-size: 0.82rem;
+    }
+
+    .hero {
+        padding-top: 2.4rem;
+    }
+}
